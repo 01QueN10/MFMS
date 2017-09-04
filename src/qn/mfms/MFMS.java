@@ -18,6 +18,7 @@ public class MFMS extends Application {
 			stage.setTitle("Minecraft File Management System");
 			stage.setScene(new Scene(root));
 			stage.show();
+			new MFMSController().initializeModgroupList();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
