@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qn.mfms.MFMSController">
+  <tabs>
+    <Tab closable="false" text="Instances">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <left>
+                  <AnchorPane>
+                     <children>
+                        <ListView fx:id="uiInstanceList" prefHeight="371.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                        <Button layoutX="14.0" layoutY="334.0" mnemonicParsing="false" onAction="#addInstance" text="Add new instances" />
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TextField fx:id="uiNameField" layoutX="70.0" layoutY="14.0" onAction="#nameChanged" prefHeight="23.0" prefWidth="223.0">
+                           <tooltip>
+                              <Tooltip text="Set this instance's name." />
+                           </tooltip>
+                        </TextField>
+                        <Button fx:id="uiUseInstance" layoutX="304.0" layoutY="14.0" mnemonicParsing="false" onAction="#useButtonPressed" prefHeight="23.0" prefWidth="83.0" text="Use" />
+                        <ChoiceBox fx:id="uiVersionList" layoutX="70.0" layoutY="50.0" prefHeight="23.0" prefWidth="222.0" />
+                        <Label layoutX="14.0" layoutY="18.0" prefHeight="15.0" prefWidth="49.0" text="Name:" />
+                        <Label layoutX="14.0" layoutY="54.0" prefHeight="15.0" prefWidth="49.0" text="Version:" />
+                        <CheckBox fx:id="uiUseForge" layoutX="304.0" layoutY="54.0" mnemonicParsing="false" onAction="#forgeCheckboxChanged" text="Use Forge" />
+                        <Label layoutX="14.0" layoutY="89.0" prefHeight="15.0" prefWidth="49.0" text="Mods:" />
+                        <Button fx:id="uiModifyMods" layoutX="70.0" layoutY="85.0" mnemonicParsing="false" onAction="#modifyButtonPressed" text="Modify" />
+                        <Button fx:id="uiOpenFolder" layoutX="14.0" layoutY="334.0" mnemonicParsing="false" onAction="#openButtonPressed" text="Open folder.." />
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </content>
+         <tooltip>
+            <Tooltip text="Define several instances and easily run them." />
+         </tooltip></Tab>
+    <Tab closable="false" text="Maps" />
+  </tabs>
+</TabPane>
