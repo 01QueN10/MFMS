@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -12,7 +11,7 @@
                <left>
                   <AnchorPane>
                      <children>
-                        <ListView fx:id="uiInstanceList" prefHeight="371.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                        <ListView fx:id="uiInstanceList" onMouseClicked="#updateInstanceEditor" prefHeight="371.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
                         <Button layoutX="14.0" layoutY="334.0" mnemonicParsing="false" onAction="#addInstance" text="Add new instances" />
                      </children>
                   </AnchorPane>
@@ -20,13 +19,13 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TextField fx:id="uiNameField" layoutX="70.0" layoutY="14.0" onAction="#nameChanged" prefHeight="23.0" prefWidth="223.0">
+                        <TextField fx:id="uiNameField" layoutX="70.0" layoutY="14.0" onKeyReleased="#changeName" prefHeight="23.0" prefWidth="223.0">
                            <tooltip>
                               <Tooltip text="Set this instance's name." />
                            </tooltip>
                         </TextField>
-                        <Button fx:id="uiUseInstance" layoutX="304.0" layoutY="14.0" mnemonicParsing="false" onAction="#useButtonPressed" prefHeight="23.0" prefWidth="83.0" text="Use" />
-                        <ChoiceBox fx:id="uiVersionList" layoutX="70.0" layoutY="50.0" prefHeight="23.0" prefWidth="222.0" />
+                        <Button fx:id="uiUseInstance" layoutX="304.0" layoutY="14.0" mnemonicParsing="false" onAction="#useCurrentInstance" prefHeight="23.0" prefWidth="83.0" text="Use" />
+                        <ChoiceBox fx:id="uiVersionList" layoutX="70.0" layoutY="50.0" onMouseReleased="#changeVersion" prefHeight="23.0" prefWidth="222.0" />
                         <Label layoutX="14.0" layoutY="18.0" prefHeight="15.0" prefWidth="49.0" text="Name:" />
                         <Label layoutX="14.0" layoutY="54.0" prefHeight="15.0" prefWidth="49.0" text="Version:" />
                         <CheckBox fx:id="uiUseForge" layoutX="304.0" layoutY="54.0" mnemonicParsing="false" onAction="#forgeCheckboxChanged" text="Use Forge" />

@@ -3,10 +3,6 @@ package qn.mfms;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.time.temporal.Temporal;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 public class MFMSController {
 
 	@FXML private ListView uiInstanceList;
@@ -17,8 +13,25 @@ public class MFMSController {
 	@FXML private Button uiModifyMods;
 	@FXML private Button uiOpenFolder;
 
+	private Instance currentInstance;
+
 	@FXML
-	public void useButtonPressed() {
+	public void updateInstanceEditor() {
+		if (uiInstanceList.getSelectionModel().getSelectedItem() == null) return;
+		currentInstance = MFMS.getInstance((String) uiInstanceList.getSelectionModel().getSelectedItem());
+		uiNameField.setText(currentInstance.name);
+		uiUseInstance.setDisable(currentInstance.isTargetInstance);
+	}
+
+	@FXML
+	public void useCurrentInstance() {
+		MFMS.targetInstance = currentInstance;
+		currentInstance.isTargetInstance = true;
+		updateInstanceEditor();
+	}
+
+	@FXML
+	public void changeVersion() {
 
 	}
 
@@ -38,8 +51,10 @@ public class MFMSController {
 	}
 
 	@FXML
-	public void nameChanged() {
-
+	public void changeName() {
+		if (currentInstance == null) return;
+		currentInstance.name = uiNameField.getText();
+		updateInstanceList();
 	}
 
 	@FXML
